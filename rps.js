@@ -112,12 +112,12 @@ function playGame(moves) {
   const gameRules = new GameRules(moves);
   const tableGenerator = new TableGenerator(moves);
 
-  console.log('Generated key: ' + bytesToHex(key));
+
 
   const computerMove = moveGenerator.generateMove();
   const hmac = hmacGenerator.generateHmac(computerMove);
 
-  console.log('HMAC: ' + hmac);
+
   console.log('Menu:');
   for (let i = 0; i < numMoves; i++) {
     console.log(`${i + 1} - ${moves[i]}`);
@@ -147,7 +147,9 @@ function playGame(moves) {
   console.log('Player move: ' + playerMove);
   console.log('Computer move: ' + computerMove);
   console.log('Winner: ' + winner);
-
+  
+  console.log('Generated key: ' + bytesToHex(key));
+  console.log('HMAC: ' + hmac);
   const table = tableGenerator.generateTable();
   displayTable(table);
 }
